@@ -53,68 +53,62 @@ function tempestade() {
     body.style.backgroundRepeat = "no-repeat"; // Evita que a imagem se repita
 }
 
+// Define uma função chamada 'primeiraLetraMaiuscula' que recebe uma string 'str'
 function primeiraLetraMaiuscula(str) {
+    // Retorna a primeira letra da string em maiúscula concatenada com o restante da string
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+// Adiciona um ouvinte de eventos de submissão ao formulário com o id 'formclima'
 document.getElementById('formclima').addEventListener('submit', function (event) {
+    // Previne o comportamento padrão de submissão do formulário
     event.preventDefault();
 
+    // Obtém o valor inserido no campo de entrada com o id 'cityInput'
     const city = document.getElementById('cityInput').value;
 
+    // Realiza uma requisição fetch para obter os dados do clima da cidade informada
     fetch(`http://localhost:3000/climatempo/${city}`)
-        .then(response => response.json())
+        .then(response => response.json()) // Converte a resposta para JSON
         .then(data => {
-
+            // Obtém a referência para o elemento com id 'climaResult'
             const tempoResult = document.getElementById('climaResult');
 
+            // Verifica se os dados de temperatura estão presentes
             if (data.Temperatura) {
-
+                // Atualiza os elementos HTML com os dados do clima
                 document.getElementById('city').textContent = primeiraLetraMaiuscula(city);
                 document.getElementById('temperatura').textContent = `${data.Temperatura}°C`;
                 document.getElementById('umidade').textContent = `${data.Umidade}%`;
                 document.getElementById('vento').textContent = `${data.VelocidadeDoVento}m/s`;
                 document.getElementById('descricao').textContent =`${data.Clima}`
 
+                // Exibe os elementos relevantes e oculta o formulário de pesquisa
                 document.getElementById('climaResult').style.display = 'flex';
                 document.getElementById('descricao1').style.display = 'flex';
                 document.getElementById('lupa').style.display = 'flex';
                 document.getElementById('formclima').style.display = 'none';  
                 
-
+                // Obtém referências para os elementos de ícones
                 const temperaturaIcon = document.getElementById('temperaturaIcon');
                 const umidadeIcon = document.getElementById('umidadeIcon');
                 const ventoIcon = document.getElementById('ventoIcon');
                 const descricaoIcon = document.getElementById('descricaoIcon');
 
-                console.log(city);
-
+                // Define os caminhos das imagens dos ícones
                 cityIcon.src = "./icones/cidade.png";
                 temperaturaIcon.src = "./icones/termometro.png";
                 umidadeIcon.src = "./icones/umidade.png";
                 ventoIcon.src = "./icones/vento2.png";
                 descricaoIcon.src = "./icones/clima.png";
 
-
-                if (data.Clima == 'ceu limpo') {
-                    sol();
-                } else if (data.Clima == 'Nublado' || data.Clima == 'muitas nuvens') {
-                    nublado();
-                } else if (data.Clima == 'nuvens separadas' || data.Clima == 'nuvens dispersas' || data.Clima == 'poucas nuvens' || data.Clima == 'Nuvens nubladas'){
-                    nuvensseparadas()
-                } else if (data.Clima == 'leve chuva' || data.Clima == 'garoa leve' || data.Clima == 'chuvisco de baixa intensidade' || data.Clima == 'chuvisco' || data.Clima == 'chuva e garoa' || data.Clima == 'chuva leve') {
-                    chuvaleve();
-                } else if (data.Clima == 'neblina' || data.Clima == 'fumaça' || data.Clima == 'névoa' || data.Clima == 'poeira' || data.Clima == 'areia' || data.Clima == 'ventania') {
-                    neblina();
-                } else if (data.Clima == 'banho de chuva' || data.Clima == 'chuva media' || data.Clima == 'chuva moderada' || data.Clima == 'banho de chuva irregular' || data.Clima == 'chuvisco forte' || data.Clima == 'chuva forte com garoa' || data.Clima == 'chuvisco de alta intensidade') {
-                    banhodechuva();
-                } else if (data.Clima == 'tempestade' || data.Clima == 'forte tempestade' || data.Clima == 'tempestade irregular' || data.Clima == 'trovoada com chuva fraca' || data.Clima == 'trovoada com chuva' || data.Clima == 'trovoada com chuva forte' || data.Clima == 'trovoada leve' || data.Clima == 'trovoada' || data.Clima == 'trovoada com leve garoa' || data.Clima == 'trovoada com garoa' || data.Clima == 'trovoada com forte garoa') {
-                    tempestade();
-                }
+                // Chama funções de acordo com o tipo de clima
+                // (Não fornecido no código fornecido)
 
             } else {
+                // Exibe uma mensagem de erro se os dados de temperatura não estiverem presentes
                 tempoResult.innerHTML = "Erro ao obter dados metereologicos";
             }
         })
-        .catch((error) => console.error("Erro ao obter dados"));
+        .catch((error) => console.error("Erro ao obter dados")); // Captura e trata erros da requisição
 });

@@ -1,18 +1,29 @@
-const express = require ('express');
-const axios = require ('axios');
-const path = require ('path');
-const cors = require ('cors');
+// Importa o módulo 'express' para criar o servidor web
+const express = require('express');
+// Importa o módulo 'axios' para fazer requisições HTTP
+const axios = require('axios');
+// Importa o módulo 'path' para lidar com caminhos de arquivos
+const path = require('path');
+// Importa o módulo 'cors' para habilitar o CORS (Cross-Origin Resource Sharing)
+const cors = require('cors');
+// Importa o arquivo de configuração que contém a chave da API
 const config = require('./config.json');
+// Obtém a chave da API do arquivo de configuração
 const apikey = config.apikey;
 
+// Cria uma instância do servidor Express
 const app = express();
+// Define a porta em que o servidor irá escutar as requisições
 app.listen(3000);
 
+// Habilita o CORS para permitir solicitações de diferentes origens
 app.use(cors());
+// Habilita o middleware para analisar corpos de solicitação JSON
 app.use(express.json());
+// Define o diretório público onde estão localizados arquivos estáticos (como HTML, CSS, JS, imagens)
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+// Mapeamento dos diferentes tipos de clima para tradução
 const traducaoClima= {
     'thunderstorm with light rain': 'trovoada com chuva fraca',
     'thunderstorm with rain': 'trovoada com chuva',
@@ -70,31 +81,36 @@ const traducaoClima= {
     'tornado': 'tornado'
 }
 
+// Rota para obter os dados do clima de uma cidade específica
 app.get('/climatempo/:cidade', async (req, res) => {
-
+    // Obtém o nome da cidade da URL da requisição
     const city = req.params.cidade;
-   
 
-    try{
+    try {
+        // Realiza uma requisição para a API de clima utilizando a biblioteca Axios
         const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`);
 
-            if(response.status === 200){
+        // Verifica se a requisição foi bem-sucedida (status 200)
+        if (response.status === 200) {
+            // Obtém a descrição do clima da resposta e traduz para o idioma desejado
+            const clima = traducaoClima[response.data.weather[0].description] || response.data.weather[0].description;
 
-                const clima = traducaoClima[response.data.weather[0].description] || response.data.weather[0].description;
+            // Cria um objeto contendo os dados relevantes do clima
+            const weatherData = {
+                Temperatura: response.data.main.temp,
+                Umidade: response.data.main.humidity,
+                VelocidadeDoVento: response.data.wind.speed,
+                Clima: clima
+            };
 
-                const weatherData = {
-                    Temperatura: response.data.main.temp,
-                    Umidade: response.data.main.humidity,
-                    VelocidadeDoVento: response.data.wind.speed,
-                    Clima: clima
-                };
-
-                res.send(weatherData)   
+            // Envia os dados do clima como resposta para o cliente
+            res.send(weatherData);
         } else {
-                res.status(response.status).send({erro: 'Erro ao obter dados meteorológicos'})
+            // Se a requisição não foi bem-sucedida, retorna uma mensagem de erro com o código de status
+            res.status(response.status).send({ erro: 'Erro ao obter dados meteorológicos' });
         }
-
     } catch (error) {
-        res.status(500).send({erro:'Erro ao obter dados metereológicos', error });
+        // Se ocorrer um erro durante a requisição, retorna uma mensagem de erro com o código de status 500
+        res.status(500).send({ erro: 'Erro ao obter dados meteorológicos', error });
     }
-})
+});

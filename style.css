@@ -1,230 +1,344 @@
+/* Define a classe '.forminteiro' */
 .forminteiro {
+    /* Define o fundo como transparente */
     background: transparent;
+    /* Aplica um efeito de desfoque ao fundo */
     backdrop-filter: blur(70px);
+    /* Define uma borda com 2px de espessura, sólida, branca com 50% de opacidade */
     border: 2px solid rgba(255, 255, 255, 0.5);
+    /* Define um raio de borda de 10px nas bordas superior esquerda e superior direita */
     border-radius: 10px 10px;
+    /* Define a altura como 90% do elemento pai */
     height: 90%;
+    /* Define a largura como 30% do elemento pai */
     width: 30%;
+    /* Define a margem à esquerda como 32% do elemento pai */
     margin-left: 32%;
+    /* Define a margem superior como 2% do elemento pai */
     margin-top: 2%;
+    /* Define a exibição como flexível */
     display: flex;
+    /* Centraliza o conteúdo horizontalmente */
     justify-content: center;
+    /* Centraliza o conteúdo verticalmente */
     align-items: center;
+    /* Define o preenchimento de 28px na parte superior e inferior, e 32px nas laterais */
     padding: 28px 32px;
+    /* Define a direção dos itens flexíveis como coluna */
     flex-direction: column;
+    /* Define a cor do texto como branco com 50% de opacidade */
     color: rgba(255, 255, 255, 0.5);
+    /* Adiciona uma sombra ao redor do elemento */
     box-shadow: 0px 10px 100px rgba(0, 0, 0.1);
+    /* Define a fonte utilizada */
     font-family: "Kdam Thmor Pro", sans-serif;
+    /* Define a duração da transição como 0.5s */
     transition: 0.5s;
+    /* Define a margem como automática na horizontal e 3% na vertical */
     margin: 0 auto;
     margin-top: 3%;
 }
 
+/* Define o estilo dos elementos <h1> */
 h1 {
+    /* Define a cor do texto como branco com 50% de opacidade */
     color: rgba(255, 255, 255, 0.5);
+    /* Define a fonte utilizada */
     font-family: "Kdam Thmor Pro", sans-serif;
+    /* Define a margem como automática */
     margin: auto;
+    /* Define o tamanho da fonte como 24px */
     font-size: 24px;
 }
 
+/* Define o estilo do elemento com id '#formclima' */
 #formclima {
+    /* Define o preenchimento como 10% do elemento pai */
     padding: 10%;
+    /* Define o alinhamento do texto como central */
     text-align: center;
+    /* Define a duração da transição como 1s */
     transition-duration: 1s;
-
 }
 
+/* Define o estilo do corpo da página */
 body {
-
+    /* Remove a margem padrão do corpo */
     margin: 0;
+    /* Define a cor do texto como branco */
     color: aliceblue;
+    /* Define uma imagem de fundo */
     background-image: url(./gif/gifs-do-planeta-terra-girando.gif);
+    /* Não repete a imagem de fundo */
     background-repeat: no-repeat;
+    /* Define a posição da imagem de fundo como central */
     background-position: center;
+    /* Redimensiona a imagem de fundo para cobrir todo o elemento */
     background-size: cover;
+    /* Define a duração da transição como 3s */
     transition: 3s;
+    /* Define a altura do corpo como 78% da altura da viewport */
     height: 78vh;
 }
 
+
+/* Define o estilo da fonte 'Kdam Thmor Pro' com peso regular */
 .kdam-thmor pro-regular {
+    /* Define a fonte utilizada */
     font-family: "Kdam Thmor Pro", sans-serif;
+    /* Define o peso da fonte como 400 (regular) */
     font-weight: 400;
+    /* Define o estilo da fonte como normal */
     font-style: normal;
 }
 
+/* Define o estilo do elemento <button> */
 button {
+    /* Define a largura como 80% do elemento pai */
     width: 80%;
+    /* Define a altura como 30px */
     height: 30px;
+    /* Define o raio de borda como 40px */
     border-radius: 40px;
+    /* Define o fundo como branco */
     background: #fff;
+    /* Remove a borda do botão */
     border: none;
+    /* Remove o contorno do botão */
     outline: none;
+    /* Define o cursor do mouse como apontador */
     cursor: pointer;
+    /* Define o peso da fonte como 600 */
     font-weight: 600;
+    /* Define o fundo como branco com 50% de opacidade */
     background-color: rgba(255, 255, 255, 0.5);
+    /* Adiciona uma sombra ao botão */
     box-shadow: 0 5px rgba(0, 0, 0.1);
+    /* Define a margem superior como 15% da altura da viewport */
     margin-top: 15vh;
+    /* Define a duração da transição como 2s */
     transition: all 2s ease;
 }
 
+/* Define o estilo do elemento com id '#cityIcon' */
 #cityIcon {
+    /* Define a altura como 30px */
     height: 30px;
-
 }
 
-
+/* Define o estilo do elemento com id '#temperaturaIcon' */
 #temperaturaIcon {
+    /* Define a altura como 30px */
     height: 30px;
 }
 
-
+/* Define o estilo do elemento com id '#umidadeIcon' */
 #umidadeIcon {
+    /* Define a altura como 30px */
     height: 30px;
 }
 
+/* Define o estilo do elemento com id '#ventoIcon' */
 #ventoIcon {
-    /* position: relative; */
+    /* Define a altura como 30px */
     height: 30px;
-    right: 10px;
 }
 
+/* Define o estilo do elemento com id '#climaResult' */
 #climaResult {
+    /* Oculta o elemento */
     display: none;
+    /* Define a largura como 350px */
     width: 350px;
+    /* Define a altura como 150px */
     height: 150px;
+    /* Define a direção dos itens flexíveis como linha */
     flex-direction: row;
+    /* Define a quebra de linha para evitar que os itens sejam quebrados */
     flex-wrap: nowrap;
+    /* Distribui os itens igualmente ao longo do eixo principal */
     justify-content: space-between;
-
 }
 
+/* Define o estilo da classe '.icons' */
 .icons {
+    /* Define a exibição como flexível */
     display: flex;
+    /* Define a direção dos itens flexíveis como coluna */
     flex-direction: column-reverse;
+    /* Distribui os itens igualmente ao longo do eixo principal */
     justify-content: space-evenly;
+    /* Alinha os itens no centro */
     align-items: center;
+    /* Define a margem como 2px */
     margin: 2px;
+    /* Define a largura como 300vh */
     width: 300vh;
 }
 
+/* Define o estilo do elemento com id '#descricaoIcon' */
 #descricaoIcon {
+    /* Define a posição como central */
     position: center;
+    /* Define a altura como 30px */
     height: 30px;
+    /* Define a largura como 30px */
     width: 30px;
+    /* Define a margem à direita como 10px */
     right: 10px;
 }
 
+/* Define o estilo da classe '.descricao' */
 .descricao {
+    /* Define a exibição como flexível */
     display: flex;
+    /* Centraliza os itens horizontalmente */
     justify-content: center;
+    /* Define a direção dos itens como coluna */
     flex-direction: column;
+    /* Define o tamanho da fonte como 20px */
     font-size: 20px;
+    /* Define a margem como 2px */
     margin: 2px;
+    /* Alinha os itens no centro verticalmente */
     align-items: center;
 }
 
-#descricaoIcon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
+/* Define o estilo da classe '.lupa' */
 .lupa {
+    /* Oculta o elemento */
     display: none;
+    /* Alinha os itens à direita */
     justify-content: flex-end;
+    /* Alinha os itens ao topo */
     align-items: flex-start;
+    /* Define a largura como 100% */
     width: 100%;
+    /* Define a margem inferior como 25% */
     margin-bottom: 25%;
-
 }
 
+/* Define o estilo do elemento com id '#descricao1' */
 #descricao1 {
+    /* Oculta o elemento */
     display: none;
+    /* Define a duração da transição como 2s */
     transition: 2s;
 }
 
+/* Define o estilo da classe '.lupa img' */
 .lupa img {
+    /* Define a altura como 4vh */
     height: 4vh;
+    /* Define a largura como 30px */
     width: 30px;
+    /* Define o raio de borda como 5px */
     border-radius: 5px;
+    /* Adiciona preenchimento de 5px */
     padding: 5px;
+    /* Define o fundo como branco com 50% de opacidade */
     background-color: rgba(255, 255, 255, 0.5);
 }
 
+/* Define regras de mídia para telas com largura máxima de 1200px */
 @media (max-width: 1200px) {
+    /* Define a altura da classe '.forminteiro' como 525px */
     .forminteiro {
         height: 525px;
     }
 
+    /* Define o estilo do elemento com id '#climaResult' */
     #climaResult {
+        /* Exibe o elemento */
         display: block;
+        /* Define o tamanho da fonte como 15px */
         font-size: 15px;
+        /* Define a largura como 250px */
         width: 250px;
+        /* Define a altura como 150px */
         height: 150px;
+        /* Define a direção dos itens flexíveis como linha */
         flex-direction: row;
+        /* Define a quebra de linha para evitar que os itens sejam quebrados */
         flex-wrap: nowrap;
+        /* Distribui os itens igualmente ao longo do eixo principal */
         justify-content: space-between;
+        /* Oculta o elemento */
         display: none;
     }
 
+    /* Define o estilo da classe '.icons' */
     .icons {
+        /* Exibe os itens como flexíveis */
         display: flex;
     }
 
+    /* Define o estilo do elemento com id '#cityIcon' */
     #cityIcon {
+        /* Define a altura como 40px */
         height: 40px;
-
     }
 
-
+    /* Define o estilo do elemento com id '#temperaturaIcon' */
     #temperaturaIcon {
+        /* Define a altura como 40px */
         height: 40px;
     }
 
-
+    /* Define o estilo do elemento com id '#umidadeIcon' */
     #umidadeIcon {
+        /* Define a altura como 40px */
         height: 40px;
     }
 
+    /* Define o estilo do elemento com id '#ventoIcon' */
     #ventoIcon {
+        /* Define a altura como 40px */
         height: 40px;
-
     }
 
-    body{
+    /* Define a altura do corpo como 94.8vh */
+    body {
         height: 94.8vh;
     }
-
 }
 
+/* Define regras de mídia para telas com largura máxima de 640px */
 @media (max-width: 640px) {
-
+    /* Define o estilo do elemento com id '#cityIcon' */
     #cityIcon {
+        /* Define a altura como 40px */
         height: 40px;
-
     }
 
-
+    /* Define o estilo do elemento com id '#temperaturaIcon' */
     #temperaturaIcon {
+        /* Define a altura como 40px */
         height: 40px;
     }
 
-
+    /* Define o estilo do elemento com id '#umidadeIcon' */
     #umidadeIcon {
+        /* Define a altura como 40px */
         height: 40px;
     }
 
+    /* Define o estilo do elemento com id '#ventoIcon' */
     #ventoIcon {
+        /* Define a altura como 40px */
         height: 40px;
     }
 
+    /* Define o estilo do elemento com id '#descricaoIcon' */
     #descricaoIcon {
+        /* Define a altura como 40px */
         height: 40px;
     }
 
+    /* Define a altura da classe '.forminteiro' como 450px */
     .forminteiro {
         height: 450px;
+        /* Define a largura como 55% */
         width: 55%;
     }
-
 }

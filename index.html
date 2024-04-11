@@ -2,33 +2,47 @@
 <html lang="pt-br">
 
 <head>
+    <!-- Define o conjunto de caracteres como UTF-8 -->
     <meta charset="UTF-8">
+    <!-- Define a largura da viewport como igual à largura do dispositivo e a escala inicial como 1.0 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define o título da página -->
     <title>Consulta do Clima</title>
+    <!-- Inclui o arquivo CSS externo -->
     <link rel="stylesheet" href="style.css">
+    <!-- Define pré-conexões para otimizar o carregamento de fontes do Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Inclui a fonte 'Kdam Thmor Pro' do Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <!-- Container principal com classe 'forminteiro' -->
     <div class="forminteiro">
+        <!-- Formulário para consulta do clima com id 'formclima' -->
         <form id="formclima" class="form-texto">
+            <!-- Título do formulário -->
             <h1>Consulta do Clima</h1>
-
+            <!-- Campo de entrada para digitar o nome da cidade -->
             <input type="text" id="cityInput" name="cityInput" placeholder="Cidade"> <br>
+            <!-- Botão de submissão do formulário -->
             <button type="submit">Consultar</button>
         </form>
-
+        <!-- Ícone de lupa para retornar à página inicial -->
         <div id="lupa" class="lupa">
             <a href="index.html"><img src="./icones/lupa.png" alt="LUPA"></a>
         </div>
+        <!-- Segunda tela com resultados da consulta -->
         <div class="segundaTela">
+            <!-- Descrição do clima -->
             <div id="descricao1" class="descricao">
                 <img id="descricaoIcon" src="" alt="Ícone descrição">
                 <p id="descricao"></p>
             </div>
+            <!-- Resultados do clima -->
             <div id="climaResult">
+                <!-- Ícones e informações do clima -->
                 <div class="icons">
                     <p id="city"></p>
                     <img id="cityIcon" src="" alt="">
@@ -47,9 +61,9 @@
                 </div>
             </div>
         </div>
-
-        <script src="script.js"></script>
-
+    </div>
+    <!-- Inclui o arquivo JavaScript externo -->
+    <script src="script.js"></script>
 </body>
 
 </html>
